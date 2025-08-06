@@ -1,4 +1,4 @@
-const apiKey = "여기에_너의_API_인증키를_넣어줘";
+const apiKey = "797455647864627339326c756e4142";
 
 async function getArrivalInfo() {
   const stationName = document.getElementById("stationInput").value.trim();
