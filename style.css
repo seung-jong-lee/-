@@ -1,20 +1,69 @@
+/* 전체 배경 및 폰트 설정 */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 50px;
   background-color: #f1f1f1;
+  margin: 0;
 }
 
-input, button {
-  font-size: 16px;
+/* 제목 스타일 */
+h1 {
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* 입력창 및 버튼 스타일 */
+input[type="text"] {
   padding: 10px;
-  margin: 10px;
+  font-size: 16px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-right: 10px;
 }
 
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3366cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #254a99;
+}
+
+/* 결과 출력 영역 */
 #result {
-  margin-top: 20px;
+  margin-top: 30px;
   padding: 20px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 0 10px #ccc;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* 각 도착 정보 카드 */
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* 카드 내부 텍스트 */
+.card p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #444;
 }
