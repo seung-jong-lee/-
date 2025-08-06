@@ -1,89 +1,68 @@
-/* 전체 배경 및 폰트 설정 */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 50px;
-  background-color: #f1f1f1;
-  margin: 0;
-}
-
-/* 제목 스타일 */
-h1 {
-  font-size: 32px;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f8;
   color: #333;
-  margin-bottom: 30px;
-}
-
-/* 입력창 및 버튼 스타일 */
-input[type="text"] {
-  padding: 10px;
-  font-size: 16px;
-  width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-right: 10px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #3366cc;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #254a99;
-}
-
-/* 결과 출력 영역 */
-#result {
-  margin-top: 30px;
+  text-align: center;
+  margin: 0;
   padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
 }
 
-/* 각 도착 정보 카드 */
-.card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 15px;
+h1 {
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+#map-container {
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+#line2-map {
+  width: 100%;
+  height: auto;
+  border: 2px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
-}
-
-/* 카드 내부 텍스트 */
-.card p {
-  margin: 5px 0;
-  font-size: 15px;
-  color: #444;
+  margin-bottom: 20px;
 }
 
 #station-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
 }
 
-button {
-  background-color: #28a745;
-  color: white;
+.station-button {
+  padding: 8px 12px;
+  font-size: 14px;
   border: none;
-  padding: 10px 14px;
-  border-radius: 6px;
+  background-color: #27ae60;
+  color: white;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #218838;
+.station-button:hover {
+  background-color: #1e8449;
+}
+
+#result {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#result ul {
+  list-style: none;
+  padding: 0;
+}
+
+#result li {
+  padding: 6px 0;
+  border-bottom: 1px solid #ccc;
 }
