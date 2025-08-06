@@ -1,4 +1,4 @@
-const apiKey = "797455647864627339326c756e4142"; // 여기에 본인 키
+const apiKey = "797455647864627339326c756e4142";
 
 // 입력창을 통한 도착정보
 async function getArrivalInfo() {
