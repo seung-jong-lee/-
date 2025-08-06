@@ -9,18 +9,18 @@ async function getArrivalInfo() {
     return;
   }
 
-  const url = `https://api.odcloud.kr/api/15092857/v1/uddi:993777df-3930-49d5-9241-6bd5bc928471?page=1&perPage=10&serviceKey=${apiKey}&stationName=${encodeURIComponent(stationName)}`;
+  const url = `https://swopenapi.seoul.go.kr/api/subway/${apiKey}/json/realtimeStationArrival/0/5/${encodeURIComponent(stationName)}`;
 
   try {
     const res = await fetch(url);
     const data = await res.json();
 
-    if (!data || !data.data || data.data.length === 0) {
+    if (!data || !data.realtimeArrivalList || data.realtimeArrivalList.length === 0) {
       resultDiv.innerHTML = "❌ 도착 정보를 찾을 수 없습니다.";
       return;
     }
 
-    resultDiv.innerHTML = data.data.map(item => `
+    resultDiv.innerHTML = data.realtimeArrivalList.map(item => `
       <p><strong>${item.trainLineNm}</strong> - ${item.arvlMsg2}</p>
     `).join("");
   } catch (err) {
