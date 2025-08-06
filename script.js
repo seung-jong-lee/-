@@ -9,11 +9,9 @@ async function getArrivalInfo() {
     return;
   }
 
-  // 원래 API URL (주의: http라서 GitHub Pages에서 직접 요청하면 차단될 수 있음)
   const originalUrl = `http://swopenapi.seoul.go.kr/api/subway/${apiKey}/json/realtimeStationArrival/0/5/${encodeURIComponent(stationName)}`;
 
   try {
-    // CORS / mixed content 문제를 피하기 위해 public 프록시를 거쳐 요청 (신뢰도는 완전하지 않음)
     const proxiedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(originalUrl)}`;
 
     const res = await fetch(proxiedUrl);
@@ -22,16 +20,14 @@ async function getArrivalInfo() {
     }
     const data = await res.json();
 
-    console.log("받은 데이터:", data); // 디버그: 실제 구조 확인
+    console.log("받은 데이터:", data); 
 
-    // 서울시 API는 realtimeArrivalList 배열을 줌
     const list = data.realtimeArrivalList;
     if (!list || list.length === 0) {
       resultDiv.innerHTML = "❌ 도착 정보를 찾을 수 없습니다. (검색어 확인 또는 API 응답 확인)"; 
       return;
     }
 
-    // 간단 정렬: 도착 예정 시간(barvlDt) 기준 오름차순 (숫자)
     const sorted = list.slice().sort((a, b) => {
       const aTime = parseInt(a.barvlDt, 10);
       const bTime = parseInt(b.barvlDt, 10);
@@ -41,7 +37,6 @@ async function getArrivalInfo() {
     });
 
     resultDiv.innerHTML = sorted.map(item => {
-      // arvlMsg2가 “도착”, “4분 20초 후” 등
       return `
         <div class="card">
           <p><strong>${item.trainLineNm}</strong> (${item.updnLine})</p>
