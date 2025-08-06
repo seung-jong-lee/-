@@ -7,8 +7,39 @@
 </head>
 <body>
   <h1>🚇 서울 지하철 도착정보</h1>
-  <input type="text" id="stationInput" placeholder="역 이름 입력 (예: 강남)">
-  <button onclick="getArrivalInfo()">도착 정보 확인</button>
+
+  <h2>2호선 노선도</h2>
+  <img src="2호선 노선도.png" alt="2호선 노선도" style="max-width: 100%;">
+
+  <div class="station-buttons">
+    <button onclick="getStationInfo('까치산')">까치산</button>
+    <button onclick="getStationInfo('신도림')">신도림</button>
+    <button onclick="getStationInfo('대림')">대림</button>
+    <button onclick="getStationInfo('사당')">사당</button>
+    <button onclick="getStationInfo('교대')">교대</button>
+    <button onclick="getStationInfo('강남')">강남</button>
+    <button onclick="getStationInfo('선릉')">선릉</button>
+    <button onclick="getStationInfo('잠실')">잠실</button>
+    <button onclick="getStationInfo('건대입구')">건대입구</button>
+    <button onclick="getStationInfo('성수')">성수</button>
+    <button onclick="getStationInfo('신설동')">신설동</button>
+    <button onclick="getStationInfo('신당')">신당</button>
+    <button onclick="getStationInfo('동대문역사문화공원')">동대문역사문화공원</button>
+    <button onclick="getStationInfo('을지로4가')">을지로4가</button>
+    <button onclick="getStationInfo('을지로3가')">을지로3가</button>
+    <button onclick="getStationInfo('시청')">시청</button>
+    <button onclick="getStationInfo('충정로')">충정로</button>
+    <button onclick="getStationInfo('홍대입구')">홍대입구</button>
+    <button onclick="getStationInfo('합정')">합정</button>
+    <button onclick="getStationInfo('당산')">당산</button>
+    <button onclick="getStationInfo('영등포구청')">영등포구청</button>
+  </div>
+
+  <div class="manual-search">
+    <input type="text" id="stationInput" placeholder="역 이름 입력 (예: 강남)">
+    <button onclick="getArrivalInfo()">도착 정보 확인</button>
+  </div>
+
   <div id="result"></div>
 
   <script src="script.js"></script>
