@@ -1,49 +1,16 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>서울 지하철 도착정보</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>서울 지하철 도착정보</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🚇 서울 지하철 도착정보</h1>
+<h1>🚇 서울 지하철 도착정보</h1>
+<input type="text" id="stationInput" placeholder="역 이름 입력 (예: 강남)">
+<button onclick="getArrivalInfo()">도착 정보 확인</button>
+<div id="result"></div>
 
-  <!-- 검색창 -->
-  <div class="search-box">
-    <input type="text" id="stationInput" placeholder="역 이름 입력 (예: 강남)">
-    <button onclick="getArrivalInfo()">도착 정보 확인</button>
-  </div>
-
-  <!-- 결과 출력 -->
-  <div id="result"></div>
-
-  <!-- 2호선 노선도 -->
-  <div class="map-container">
-    <img src="line2_map.png" alt="서울 2호선 노선도" class="subway-map">
-    <!-- 각 역에 해당하는 버튼 -->
-    <button class="station-button" style="top: 60px; left: 200px;" onclick="getArrivalInfoByStation('강남')">강남</button>
-    <button class="station-button" style="top: 110px; left: 180px;" onclick="getArrivalInfoByStation('교대')">교대</button>
-    <button class="station-button" style="top: 150px; left: 160px;" onclick="getArrivalInfoByStation('사당')">사당</button>
-    <button class="station-button" style="top: 180px; left: 130px;" onclick="getArrivalInfoByStation('대림')">대림</button>
-    <button class="station-button" style="top: 200px; left: 100px;" onclick="getArrivalInfoByStation('신도림')">신도림</button>
-    <button class="station-button" style="top: 230px; left: 90px;" onclick="getArrivalInfoByStation('까치산')">까치산</button>
-    <button class="station-button" style="top: 140px; left: 250px;" onclick="getArrivalInfoByStation('선릉')">선릉</button>
-    <button class="station-button" style="top: 100px; left: 300px;" onclick="getArrivalInfoByStation('잠실')">잠실</button>
-    <button class="station-button" style="top: 70px; left: 330px;" onclick="getArrivalInfoByStation('건대입구')">건대입구</button>
-    <button class="station-button" style="top: 50px; left: 360px;" onclick="getArrivalInfoByStation('성수')">성수</button>
-    <button class="station-button" style="top: 40px; left: 380px;" onclick="getArrivalInfoByStation('신설동')">신설동</button>
-    <button class="station-button" style="top: 60px; left: 370px;" onclick="getArrivalInfoByStation('신당')">신당</button>
-    <button class="station-button" style="top: 80px; left: 350px;" onclick="getArrivalInfoByStation('동대문역사문화공원')">동문역사</button>
-    <button class="station-button" style="top: 100px; left: 330px;" onclick="getArrivalInfoByStation('을지로4가')">을지로4가</button>
-    <button class="station-button" style="top: 120px; left: 310px;" onclick="getArrivalInfoByStation('을지로3가')">을지로3가</button>
-    <button class="station-button" style="top: 140px; left: 290px;" onclick="getArrivalInfoByStation('시청')">시청</button>
-    <button class="station-button" style="top: 160px; left: 270px;" onclick="getArrivalInfoByStation('충정로')">충정로</button>
-    <button class="station-button" style="top: 180px; left: 250px;" onclick="getArrivalInfoByStation('홍대입구')">홍대입구</button>
-    <button class="station-button" style="top: 200px; left: 230px;" onclick="getArrivalInfoByStation('합정')">합정</button>
-    <button class="station-button" style="top: 220px; left: 210px;" onclick="getArrivalInfoByStation('당산')">당산</button>
-    <button class="station-button" style="top: 240px; left: 190px;" onclick="getArrivalInfoByStation('영등포구청')">영등포구청</button>
-  </div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
