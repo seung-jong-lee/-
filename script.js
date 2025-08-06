@@ -1,4 +1,4 @@
-const apiKey = "발급받은_서울시_API_KEY"; // ← 여기에 실제 키 입력하세요
+const apiKey = "797455647864627339326c756e4142"; // ← 여기에 실제 키 입력하세요
 
 function getSubwayInfo(stationName = null) {
   const input = document.getElementById("stationNameInput");
