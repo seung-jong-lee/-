@@ -9,7 +9,7 @@ async function getArrivalInfo() {
     return;
   }
 
-  const url = `https://swopenapi.seoul.go.kr/api/subway/${apiKey}/json/realtimeStationArrival/0/5/${encodeURIComponent(stationName)}`;
+  const url = `https://swopenapi.seoul.go.kr/api/subway/797455647864627339326c756e4142/json/realtimeStationArrival/0/5/강남`;
 
   try {
     const res = await fetch(url);
