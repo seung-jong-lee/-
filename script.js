@@ -1,35 +1,54 @@
-const apiKey = "797455647864627339326c756e4142"; // ← 여기에 실제 키 입력하세요
+const apiKey = "797455647864627339326c756e4142"; // 여기에 본인 키
 
-function getSubwayInfo(stationName = null) {
-  const input = document.getElementById("stationNameInput");
-  const name = stationName || input.value.trim();
-  if (!name) {
-    alert("🚨 역 이름을 입력하세요.");
+// 입력창을 통한 도착정보
+async function getArrivalInfo() {
+  const stationName = document.getElementById("stationInput").value.trim();
+  await fetchArrivalInfo(stationName);
+}
+
+// 버튼 클릭으로 조회
+async function getArrivalInfoByClick(stationName) {
+  document.getElementById("stationInput").value = stationName;
+  await fetchArrivalInfo(stationName);
+}
+
+// 실제 API 호출 함수
+async function fetchArrivalInfo(stationName) {
+  const resultDiv = document.getElementById("result");
+
+  if (!stationName) {
+    resultDiv.innerHTML = "🚨 역 이름을 입력해주세요.";
     return;
   }
 
-  fetch(`https://api.odcloud.kr/api/15067752/v1/uddi:8fd71f8f-fbe1-4c27-a849-171b16fbf0d8?page=1&perPage=1000&serviceKey=${apiKey}`)
-    .then(res => res.json())
-    .then(data => {
-      const results = data.data.filter(item => item.지하철역명.includes(name));
-      if (results.length === 0) {
-        document.getElementById("result").innerText = `❌ "${name}"에 대한 도착 정보를 찾을 수 없습니다.`;
-        return;
-      }
+  const originalUrl = `http://swopenapi.seoul.go.kr/api/subway/${apiKey}/json/realtimeStationArrival/0/5/${encodeURIComponent(stationName)}`;
+  const proxiedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(originalUrl)}`;
 
-      const formatted = results.map(item => {
-        return `🚉 ${item.지하철역명}\n🕒 도착정보: ${item.도착정보 || '정보 없음'}\n`;
-      }).join("\n");
+  try {
+    const res = await fetch(proxiedUrl);
+    if (!res.ok) {
+      throw new Error(`HTTP error: ${res.status}`);
+    }
 
-      document.getElementById("result").innerText = formatted;
-    })
-    .catch(error => {
-      document.getElementById("result").innerText = "⚠️ 정보를 불러오는 중 오류가 발생했습니다.";
-      console.error(error);
-    });
-}
+    const data = await res.json();
+    const list = data.realtimeArrivalList;
 
-function searchStation(name) {
-  document.getElementById("stationNameInput").value = name;
-  getSubwayInfo(name);
+    if (!list || list.length === 0) {
+      resultDiv.innerHTML = "❌ 도착 정보를 찾을 수 없습니다.";
+      return;
+    }
+
+    const sorted = list.sort((a, b) => parseInt(a.barvlDt) - parseInt(b.barvlDt));
+    resultDiv.innerHTML = sorted.map(item => `
+      <div class="card">
+        <p><strong>${item.trainLineNm}</strong> (${item.updnLine})</p>
+        <p>도착예정: ${item.arvlMsg2}</p>
+        <p>현재역: ${item.arvlMsg3}</p>
+        <p>도착시간(초): ${item.barvlDt || "정보 없음"}</p>
+      </div>
+    `).join("");
+  } catch (err) {
+    console.error("에러 발생:", err);
+    resultDiv.innerHTML = `⚠️ 정보를 불러오는 중 오류 발생: ${err.message}`;
+  }
 }
