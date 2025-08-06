@@ -4,7 +4,7 @@ function getSubwayInfo(stationName = null) {
   const input = document.getElementById("stationNameInput");
   const name = stationName || input.value.trim();
   if (!name) {
-    alert("역 이름을 입력하세요.");
+    alert("🚨 역 이름을 입력하세요.");
     return;
   }
 
