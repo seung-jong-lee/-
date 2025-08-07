@@ -21,7 +21,7 @@ async function fetchArrivalInfo(stationName) {
     return;
   }
 
-  const originalUrl = `http://swopenapi.seoul.go.kr/api/subway/${797455647864627339326c756e4142}/json/realtimeStationArrival/0/5/${encodeURIComponent(stationName)}`;
+const originalUrl = `http://swopenapi.seoul.go.kr/api/subway/${apiKey}/json/realtimeStationArrival/0/5/${encodeURIComponent(stationName)}`;
   const proxiedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(originalUrl)}`;
 
   try {
