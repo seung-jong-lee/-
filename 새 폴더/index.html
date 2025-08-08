@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>서울 지하철 도착정보</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🚇 서울 지하철 도착정보</h1>
+
+    <!-- 🔍 검색창 -->
+    <div class="search-box">
+      <input type="text" id="stationInput" placeholder="역 이름 입력 (예: 강남)">
+      <button onclick="getArrivalInfo()">도착 정보 확인</button>
+    </div>
+
+    <!-- 📋 도착 정보 출력 -->
+    <div id="result" class="result-box"></div>
+
+    <!-- 🛤️ 2호선 노선도 -->
+    <h2>2호선 노선도</h2>
+    <img src="line2.png" alt="2호선 노선도" class="map-image">
+
+    <!-- 🧷 2호선 주요 환승역 버튼 -->
+    <div class="station-buttons">
+      <button onclick="getArrivalInfoByClick('까치산')">까치산</button>
+      <button onclick="getArrivalInfoByClick('신도림')">신도림</button>
+      <button onclick="getArrivalInfoByClick('대림')">대림</button>
+      <button onclick="getArrivalInfoByClick('사당')">사당</button>
+      <button onclick="getArrivalInfoByClick('교대')">교대</button>
+      <button onclick="getArrivalInfoByClick('강남')">강남</button>
+      <button onclick="getArrivalInfoByClick('선릉')">선릉</button>
+      <button onclick="getArrivalInfoByClick('잠실')">잠실</button>
+      <button onclick="getArrivalInfoByClick('건대입구')">건대입구</button>
+      <button onclick="getArrivalInfoByClick('성수')">성수</button>
+      <button onclick="getArrivalInfoByClick('신설동')">신설동</button>
+      <button onclick="getArrivalInfoByClick('신당')">신당</button>
+      <button onclick="getArrivalInfoByClick('동대문역사문화공원')">동대문역사문화공원</button>
+      <button onclick="getArrivalInfoByClick('을지로4가')">을지로4가</button>
+      <button onclick="getArrivalInfoByClick('을지로3가')">을지로3가</button>
+      <button onclick="getArrivalInfoByClick('시청')">시청</button>
+      <button onclick="getArrivalInfoByClick('충정로')">충정로</button>
+      <button onclick="getArrivalInfoByClick('홍대입구')">홍대입구</button>
+      <button onclick="getArrivalInfoByClick('합정')">합정</button>
+      <button onclick="getArrivalInfoByClick('당산')">당산</button>
+      <button onclick="getArrivalInfoByClick('영등포구청')">영등포구청</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
